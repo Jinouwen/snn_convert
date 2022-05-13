@@ -16,4 +16,4 @@ from snntoolbox.utils.utils import import_configparser
 
 
 #main(config_filepath)
-main('/tmp/pycharm_project_498/snntoolbox_applications/models/inceptionV3/config')
+main('/mnt/ouwen/pycharm_project_000/snntoolbox_applications/models/inceptionV3/config')

@@ -17,9 +17,9 @@ class Partitioner(object):
         connections = {}
         data_dirname = os.path.join(os.path.dirname(self.config_filename), self.config.get('data', 'dir_path'))
         for i in range(data_num):
-            data_file = os.path.join(data_dirname, '{:0>4d}data_ij.npz'.format(i))
-            print("processing " + data_file)
-            a = np.load(data_file)['arr_0']
+            data_filename = os.path.join(data_dirname, '{:0>4d}data_ij.npz'.format(i))
+            print("processing " + data_filename)
+            a = np.load(data_filename)['arr_0']
             a = a // self.core_size
             for (u, v) in a:
                 if (u, v) in connections:

@@ -110,6 +110,7 @@ class SNN(AbstractSNN):
                 (layer.name, get_shape_from_label(self.layers[-1].label)))
             return
 
+
         self.layers.append(self.sim.NeuronGroup(
             np.prod(layer.output_shape[1:]), model=self.eqs, method='euler',
             reset=self.v_reset, threshold=self.threshold,
@@ -166,7 +167,8 @@ class SNN(AbstractSNN):
                 y_in = 1
                 x_in = 1
             else:
-                raise Exception
+                # raise Exception
+                pass
 
             for i in range(weights.shape[0]):  # Input neurons
                 # Sweep across channel axis of feature map. Assumes that each
@@ -243,7 +245,8 @@ class SNN(AbstractSNN):
         assert self._input_layer, "No input layer found."
 
     def simulate(self, **kwargs):
-
+        print('Cant simulate!')
+        raise Exception
         inputs = kwargs[str('x_b_l')].flatten() / self.sim.ms
         if self._poisson_input:
             self._input_layer.rates = inputs / self.rescale_fac
@@ -298,6 +301,7 @@ class SNN(AbstractSNN):
                 self.filename_label += 1
                 del connection
                 del data_ij
+            del self.connections
             self.connections = []
 
 
